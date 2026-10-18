@@ -1,0 +1,271 @@
+[
+ {
+  "fn": "prorateTruth",
+  "args": [
+   1200,
+   30,
+   12
+  ],
+  "expected": "A 1200.00 bill over 30 days, 12 days used: 480.00."
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   1200,
+   30,
+   0
+  ],
+  "expected": "A 1200.00 bill over 30 days, 0 days used: 0.00."
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   1200,
+   30,
+   30
+  ],
+  "expected": "A 1200.00 bill over 30 days, 30 days used: 1200.00."
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   1000,
+   31,
+   10
+  ],
+  "expected": "A 1000.00 bill over 31 days, 10 days used: 322.58."
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   100,
+   1,
+   1
+  ],
+  "expected": "A 100.00 bill over 1 day, 1 day used: 100.00."
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   0.01,
+   3,
+   1
+  ],
+  "expected": "A 0.01 bill over 3 days, 1 day used: 0.00."
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   0,
+   30,
+   12
+  ],
+  "expected": "ERR:bill must be between 0 and 1000000, over 0"
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   1200,
+   0,
+   0
+  ],
+  "expected": "ERR:days in period must be a whole number from 1 to 366"
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   1200,
+   367,
+   5
+  ],
+  "expected": "ERR:days in period must be a whole number from 1 to 366"
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   1200,
+   30,
+   31
+  ],
+  "expected": "ERR:days used must be a whole number from 0 to the days in the period"
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   1200,
+   30,
+   -1
+  ],
+  "expected": "ERR:days used must be a whole number from 0 to the days in the period"
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   1200,
+   30,
+   1.5
+  ],
+  "expected": "ERR:days used must be a whole number from 0 to the days in the period"
+ },
+ {
+  "fn": "prorateTruth",
+  "args": [
+   1000001,
+   30,
+   5
+  ],
+  "expected": "ERR:bill must be between 0 and 1000000, over 0"
+ },
+ {
+  "fn": "dailyTruth",
+  "args": [
+   90,
+   30
+  ],
+  "expected": "A 90.00 bill over 30 days is 3.00 per day."
+ },
+ {
+  "fn": "dailyTruth",
+  "args": [
+   100,
+   30
+  ],
+  "expected": "A 100.00 bill over 30 days is 3.3333 per day."
+ },
+ {
+  "fn": "dailyTruth",
+  "args": [
+   90,
+   1
+  ],
+  "expected": "A 90.00 bill over 1 day is 90.00 per day."
+ },
+ {
+  "fn": "dailyTruth",
+  "args": [
+   1200,
+   365
+  ],
+  "expected": "A 1200.00 bill over 365 days is 3.2877 per day."
+ },
+ {
+  "fn": "dailyTruth",
+  "args": [
+   90,
+   0
+  ],
+  "expected": "ERR:days in period must be a whole number from 1 to 366"
+ },
+ {
+  "fn": "dailyTruth",
+  "args": [
+   -5,
+   30
+  ],
+  "expected": "ERR:bill must be between 0 and 1000000, over 0"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   "10, 10, 10"
+  ],
+  "expected": "Bill 100.00 split over 30 person-days (10, 10, 10): 33.34, 33.33, 33.33."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   90,
+   "30,20,10"
+  ],
+  "expected": "Bill 90.00 split over 60 person-days (30, 20, 10): 45.00, 30.00, 15.00."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   "30, 0"
+  ],
+  "expected": "Bill 100.00 split over 30 person-days (30, 0): 100.00, 0.00."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   0.01,
+   "1, 1, 1"
+  ],
+  "expected": "Bill 0.01 split over 3 person-days (1, 1, 1): 0.01, 0.00, 0.00."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   "7"
+  ],
+  "expected": "ERR:enter 2 to 12 day counts separated by commas"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   "0, 0"
+  ],
+  "expected": "ERR:day counts must add up to more than 0"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   "10, x"
+  ],
+  "expected": "ERR:each day count must be a whole number from 0 to 366"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   "10, 367"
+  ],
+  "expected": "ERR:each day count must be a whole number from 0 to 366"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   "1,2,3,4,5,6,7,8,9,10,11,12,13"
+  ],
+  "expected": "ERR:enter 2 to 12 day counts separated by commas"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   "1, 1"
+  ],
+  "expected": "Bill 100.00 split over 2 person-days (1, 1): 50.00, 50.00."
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   0,
+   "10, 10"
+  ],
+  "expected": "ERR:bill must be between 0 and 1000000, over 0"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   "10, , 10"
+  ],
+  "expected": "ERR:each day count must be a whole number from 0 to 366"
+ },
+ {
+  "fn": "splitTruth",
+  "args": [
+   100,
+   "010, 5"
+  ],
+  "expected": "Bill 100.00 split over 15 person-days (10, 5): 66.67, 33.33."
+ }
+]
